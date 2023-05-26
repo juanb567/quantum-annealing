@@ -1,1 +1,1 @@
-# quanqum-annealing
+# quantum-annealing
