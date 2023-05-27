@@ -19,3 +19,13 @@ Where, ignoring some physical constants due to their irrelevance for the combina
 Here, $\langle i j \rangle$ indicates that the interaction happens only between spins which are next to each other.
 
 Therefore, we want to find the configuration of particles of the lattice which minimizes the energy of the system. There are several algorithms to solve this kind of problem. However, we are going to simulate the process of quantum annealing that a quantum computer would implement to solve this combinatorial problem.
+
+In this model, we evolve a state of a mixture of all possible configurations to the solution of the problem. For that, we introduce the evolution hamiltonian $H(\lambda)$
+
+$$ H(\lambda) = \lambda H_1 + (1-\lambda) H_0 $$
+
+Where $H_1$ is the hamiltonian of the Ising model and:
+
+$$ H_0 = -\sum_{i}S_{i}^{x} $$
+
+$S_{i}^{x}$ being the operator of spin in the x direction. As this operator acts on states of the wavefunction of the spin making the amplitude of proabilities of the states $\ket{\uparrow}$ and $\ket{\downarrow}$ equal, we evolve the wavefuntion from a system with a superposition of all states to a system with a high probability of being in the state of the minimum energy of $H_1$.
