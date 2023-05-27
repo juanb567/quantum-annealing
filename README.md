@@ -1,1 +1,1 @@
-# quantum-annealing
+# Quantum Annealing Simulator
