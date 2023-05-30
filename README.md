@@ -26,7 +26,7 @@ $$ H(\lambda) = \lambda H_1 + (1-\lambda) H_0 $$
 
 Where $H_1$ is the hamiltonian of the Ising model:
 
-$$H_1 = -J\sum_{\langle i j \rangle}\S_i^z \S_j^z -h\sum_{i} \S_i^z$$
+$$H_1 = -J\sum_{\langle i j \rangle}\S_{i}^{z} \S_j^z -h\sum_{i} \S_{i}^{z}$$
 
 and:
 
@@ -46,3 +46,17 @@ In addition, it calculates the magnetization of the system, defined as the sum o
 
 $$m = \frac{\sum_i\sigma_i}{N}$$
 
+# Contents of the project
+
+There are 4 main contents in the project:
+
+- In the file [quantum_annealing_simulator](https://github.com/juanb567/quantum-annealing/blob/master/quantum_annealing_simulator.py) the code starts with the definition of the parameters of the problem, where it can be chosen the values:
+  - J : coupling strength
+  - h : magnetic field 
+  - step : increment of $\lambda$
+  - n : number of particles in horizontal direction
+  - m : number of particles in vertical direction
+ Next to it, the code contains the part where the simulation is done. After that, there are some functions to plot the evolution of the system.
+- The file [functions](https://github.com/juanb567/quantum-annealing/blob/master/functions.py) contains methods to create the elements to do the simulation, such as generating the lattice of the system, the possible configurations and creating the matrices $H_0$ and $H_1$.
+- The file [tests](https://github.com/juanb567/quantum-annealing/blob/master/tests.py) contains tests implemented for the functions in the file 'functioms'.
+- The directory [graphs](https://github.com/juanb567/quantum-annealing/blob/master/Graphs) contains the results obtained for a configuration of J = 1, h = 0.0001, step = 0.01, m = 3 and n = 3.
