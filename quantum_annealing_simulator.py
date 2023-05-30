@@ -11,10 +11,10 @@ import functions as func
 J = 1
 h = 0.0001
 step = 0.01
-n = 3
+n = 4
 m = 3                   
 
-assert n*m < 20
+assert n*m <= 16 
 
 start = time.time()
 
@@ -41,8 +41,6 @@ print('Matrices created')
 l = 0
 
 for t in param_lambda:
-    
-    print(t*100 , '%')
     
     mag = 0.0
     H = (1-t)*H_0 + t*H_1
