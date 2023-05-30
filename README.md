@@ -29,7 +29,10 @@ Where $H_1$ is the hamiltonian of the Ising model and:
 $$ H_0 = -\sum_{i}S_{i}^{x} $$
 
 $S_{i}^{x}$ being the operator of spin in the x direction. As this operator acts on states of the wavefunction of the spin making the amplitude of proabilities of the states $\ket{\uparrow}$ and $\ket{\downarrow}$ equal, we evolve the wavefuntion from a system with a superposition of all states to a system with a high probability of being in the state of the minimum energy of $H_1$.
+<<<<<<< HEAD
 
 # Simulation of the process
 
 
+=======
+>>>>>>> 233ab9fd2f7872e653e668c3d81691f25bce0958

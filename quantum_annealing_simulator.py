@@ -181,4 +181,5 @@ plot_amplitudes_log()
 
 
 final = time.time()
+
 print('Spent time: ' , final - start , ' seconds')
