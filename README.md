@@ -26,7 +26,7 @@ $$ H(\lambda) = \lambda H_1 + (1-\lambda) H_0 $$
 
 Where $H_1$ is the hamiltonian of the Ising model:
 
-$$H_1 = -J\sum_{\langle i j \rangle}\S_{i}^{z} \S_j^z -h\sum_{i} \S_{i}^{z}$$
+$$H_1 = -J\sum_{\langle i j \rangle}S_{i}^{z} S_{j}^{z} -h\sum_{i} S_{i}^{z}$$
 
 and:
 
