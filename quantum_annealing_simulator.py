@@ -143,6 +143,6 @@ def plot_amplitudes_log():
 save_plot(plot_configuration, "configuration.png", directory)
 save_plot(plot_magnetization, "magnetization.png", directory)
 save_plot(plot_amplitudes, "amplitudes.png", directory)
-save_plot(plot_amplitudes_log, "amplitudes_log.png", directory)
+save_plot(plot_amplitudes_log, "amplitudes_logscale.png", directory)
 
 print('Spent time for the simulation: ' , final - start , ' seconds')
