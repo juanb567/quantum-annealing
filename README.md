@@ -56,8 +56,9 @@ There are 4 main contents in the project:
   - step : increment of $\lambda$
   - n : number of particles in horizontal direction
   - m : number of particles in vertical direction
- Next to it, the code contains the part where the simulation is done. After that, there are some functions to plot the evolution of the system.
-- The file [functions](https://github.com/juanb567/quantum-annealing/blob/master/functions.py) contains methods to create the elements to do the simulation, such as generating the lattice of the system, the possible configurations and creating the matrices $H_0$ and $H_1$.
+
+Next to it, the code contains the part where the simulation is done. After that, there are some functions to plot the evolution of the system.
+- The file [functions](https://github.com/juanb567/quantum-annealing/blob/master/functions.py) contains functions to create the elements to do the simulation, such as generating the lattice of the system, the possible configurations and creating the matrices $H_0$ and $H_1$.
 - The file [tests](https://github.com/juanb567/quantum-annealing/blob/master/tests.py) contains tests implemented for the functions in the file 'functioms'.
 - The directory [graphs](https://github.com/juanb567/quantum-annealing/blob/master/Graphs) contains the results obtained for a configuration of J = 1, h = 0.0001, step = 0.01, m = 3 and n = 3.
 
