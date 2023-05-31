@@ -1,3 +1,4 @@
+import os
 import time
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,13 +12,14 @@ import functions as func
 J = 1
 h = 0.0001
 step = 0.01
-n = 4
-m = 3                   
+n = 3
+m = 3
 
-assert n*m <= 16 
+directory = './Graphs'  # Directory where the plots will be saved.                 
+
+assert n*m <= 16   # The problem is too big.
 
 start = time.time()
-
 
 p = m*n
 param_lambda = np.arange(0, 1+step, step)
@@ -26,7 +28,7 @@ magnetization_values = np.zeros(len(param_lambda))
 
 configurations = func.possible_configurations(n, m)
 sites, spins = func.lattice(n, m)
-neighbors = func.neighbors_classification(sites, spins)
+neighbors = func.neighbors_classification(sites)
 
 
 H_0 = func.H_0(n, m, configurations)
@@ -56,16 +58,33 @@ for t in param_lambda:
 
 b = list(abs(ground_state[:,0])).index(max(abs(ground_state[:,0])))    # Position of the list 'configurations' where the solution is
 
-print('Energy of the configuration:' , energy)
-
+print('Energy of the configuration:' , energy)    # Minimum eigenvalue of H
 
 final = time.time()
 
 
 ############################# GRAPHICS ##################################
 
+def save_plot(plot_function, filename, directory=None):
+    
+    """This module saves the plot in the desired directory."""
+    
+    if directory is not None:
+        os.makedirs(directory, exist_ok=True)
+        filepath = os.path.join(directory, filename)
+    else:
+        filepath = filename
+
+    plot_function()
+    plt.savefig(filepath)
+    plt.close()
+
 
 def plot_configuration():
+    
+    """This module plots the configuration of the ground state
+    at the end of the process."""
+    
     plt.figure()
     colores = {1: "green", -1: "red"}
     for i in range(len(configurations[b])):
@@ -76,18 +95,25 @@ def plot_configuration():
     plt.yticks(range(-1, m+1))
     plt.gca().set_aspect("equal")
     plt.grid(visible=False)
-    plt.show()
+
 
 def plot_magnetization():
+    
+    """This module plots the magnetization of the 
+    system during the process."""
+    
     plt.figure()
     plt.plot(param_lambda, magnetization_values)
     plt.xlabel(r"$\lambda$")
     plt.ylabel(r"$Magnetization$")
     plt.xlim([0, 1])
     plt.grid()
-    plt.show()    
 
 def plot_amplitudes():
+    
+    """This module plots the amplitude of the each configuration
+    during the process."""
+    
     plt.figure()
     for i in range(2**p):
         plt.plot(param_lambda, amplitudes_values[:,i])
@@ -96,9 +122,12 @@ def plot_amplitudes():
     plt.xlim([0, 1])
     plt.ylim([0, 1])
     plt.grid()
-    plt.show()
     
 def plot_amplitudes_log():
+    
+    """This module plots the amplitude of the each configuration
+    during the process in a logarithmic scale."""
+    
     plt.figure()
     plt.yscale(value='log')
     for i in range(2**p):
@@ -108,13 +137,12 @@ def plot_amplitudes_log():
     plt.xlim([0, 1])
     plt.ylim([1e-5, 1])
     plt.grid()
-    plt.show()
 
 ########################################################################
 
-plot_configuration()
-plot_magnetization()
-plot_amplitudes()
-plot_amplitudes_log()
+save_plot(plot_configuration, "configuration.png", directory)
+save_plot(plot_magnetization, "magnetization.png", directory)
+save_plot(plot_amplitudes, "amplitudes.png", directory)
+save_plot(plot_amplitudes_log, "amplitudes_log.png", directory)
 
-print('Spent time: ' , final - start , ' seconds')
+print('Spent time for the simulation: ' , final - start , ' seconds')
