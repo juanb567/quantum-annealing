@@ -60,3 +60,5 @@ There are 4 main contents in the project:
 - The file [functions](https://github.com/juanb567/quantum-annealing/blob/master/functions.py) contains methods to create the elements to do the simulation, such as generating the lattice of the system, the possible configurations and creating the matrices $H_0$ and $H_1$.
 - The file [tests](https://github.com/juanb567/quantum-annealing/blob/master/tests.py) contains tests implemented for the functions in the file 'functioms'.
 - The directory [graphs](https://github.com/juanb567/quantum-annealing/blob/master/Graphs) contains the results obtained for a configuration of J = 1, h = 0.0001, step = 0.01, m = 3 and n = 3.
+
+To execute the program, the user needs to clone the repository and type 'python quantum_annealing_simulator.py'. A directory with the images of the simulation will be saved.
