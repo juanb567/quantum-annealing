@@ -4,16 +4,18 @@ from scipy.sparse import lil_matrix
 import numpy as np
 
 
-# List with coordinates of each spin:
-
 def lattice(n, m):
-    """This method calculates the energy of a given configuration, given the exchange constant J = 1.
+    
+    """This method generates the lattice of the system
         
     Parameters:
-        config: state of the configuration created by initialstate(N,M).
+        n: number of particles in the horizontal direction.
+        m: number of particles in the vertical direction.
             
     Returns:
-        The calculated energy of the modified configuration of the lattice."""
+        sites: coordinates of the particles.
+        spins: dictionary with the spin-value of each coordinate."""
+        
     sites = []
     spins = {}
     for i,j in itertools.product(range(n), range(m)):
@@ -24,7 +26,16 @@ def lattice(n, m):
 	
 # Value-assignment to each spin:	
 
-def neighbors_classification(sites, spins):
+def neighbors_classification(sites):
+    
+    """This method classifies the neighbors of each particle
+        
+    Parameter:
+        sites: coordinates of the particles.
+            
+    Returns:
+        neighbors: dictionary with the neighbors of each particle."""
+        
     neighbors = {}
     for site in sites:
     	i, j = site
@@ -44,6 +55,16 @@ def neighbors_classification(sites, spins):
 # Creation of all possible configurations of spins:
 
 def possible_configurations(n, m):
+    
+    """This method generates all the possible configurations of the spins.
+        
+    Parameters:
+        n: number of particles in the horizontal direction.
+        m: number of particles in the vertical direction.
+            
+    Returns:
+        configurations: list with all the configurations of the lattice."""
+        
     configurations = []
     for k in itertools.product([1,-1] , repeat=n*m):
     	configurations.append(list(k))
@@ -54,6 +75,17 @@ def possible_configurations(n, m):
     # Disperse matrix H_0
    
 def H_0(n, m, configurations):
+    
+    """This method generates the starting hamiltonian H_0.
+        
+    Parameters:
+        n: number of particles in the horizontal direction.
+        m: number of particles in the vertical direction.
+        configurations: list with all the configurations of the lattice.
+            
+    Returns:
+        H_0: starting hamiltonian."""
+        
     p = m*n
     H_0 = lil_matrix((2**p, 2**p))
     for i in range(2**p):
@@ -65,6 +97,20 @@ def H_0(n, m, configurations):
     # Disperse matrix H_1
 
 def H_1(n, m, spins, configurations, neighbors, J, h):
+    
+    """This method generates the final hamiltonian H_1 according to the
+    parameters of the system.
+        
+    Parameters:
+        n: number of particles in the horizontal direction.
+        m: number of particles in the vertical direction.
+        configurations: list with all the configurations of the lattice.
+        neighbors: dictionary with the neighbors of each particle.
+        J : coupling strength
+        h : magnetic field
+    Returns:
+        H_1: starting hamiltonian."""
+        
     p = m*n
     H_1 = lil_matrix((2**p, 2**p))
     for i in range(2**p):
@@ -77,6 +123,18 @@ def H_1(n, m, spins, configurations, neighbors, J, h):
             for neighbor in neighbors[spin]:
                 H_1[i, i] += -0.5*J*spins[spin]*spins[neighbor]
     return H_1
+
+
 def magnetization(configuration):
+    
+    """This method calculates the magnetization of a given configuration
+    of the lattice.
+        
+    Parameter:
+        configurations: list with all the configurations of the lattice.
+
+    Returns:
+        mag: magnetization of the configuration."""
+        
     mag = np.sum(configuration)/len(configuration)
     return mag
