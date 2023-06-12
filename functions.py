@@ -184,6 +184,4 @@ def simulation(J, h, step, n, m):
     
     print('Energy of the configuration:' , energy)    # Minimum eigenvalue of H
     return configurations, sites, b, param_lambda, magnetization_values, amplitudes_values
-    
-    
 

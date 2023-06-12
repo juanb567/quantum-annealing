@@ -32,8 +32,7 @@ def test_configurations(n, m):
 def test_matrixH_0(n, m):
     
     """ Test to verify that the hamiltonian H_0
-        affects only to exactly the particles of the lattice
-        and that it is only composed by 0s and 1s."""
+        affects only to exactly the particles of the lattice."""
         
     configurations = func.possible_configurations(n, m)
     H = func.H_0(n, m, configurations)
