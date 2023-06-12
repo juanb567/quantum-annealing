@@ -1,5 +1,7 @@
 # Quantum annealing simulator for the 2D Ising model
 
+This project consists on a program to simulate the resolution of the 2D Ising model with quantum annealing.
+
 Quantum annealing is a computational approach that leverages principles of quantum physics to solve optimization problems. It involves using a quantum annealer, a specialized quantum computing device, to explore the energy landscape of a problem and find the optimal solution.
 
 In quantum annealing, the system is initialized in a quantum superposition of states, representing possible solutions. By gradually reducing quantum fluctuations, the system is driven towards the state with the lowest energy, corresponding to the optimal solution. This process is known as annealing.
@@ -59,7 +61,9 @@ There are 4 main contents in the project:
 
 Next to it, the code contains the part where the simulation is done. After that, there are some functions to plot the evolution of the system.
 - The file [functions](https://github.com/juanb567/quantum-annealing/blob/master/functions.py) contains functions to create the elements to do the simulation, such as generating the lattice of the system, the possible configurations and creating the matrices $H_0$ and $H_1$.
-- The file [tests](https://github.com/juanb567/quantum-annealing/blob/master/tests.py) contains tests implemented for the functions in the file 'functioms'.
+- The file [plots](https://github.com/juanb567/quantum-annealing/blob/master/plots.py) contains functions to plot the solutions of the simulation: the configuration of the solution of the system and the graphs of the evolution of the magnetization and the amplitudes of the system in a linear and logarithmic scale during the process.
+- The file [configuration](https://github.com/juanb567/quantum-annealing/blob/master/congfiguration.txt) contains the parameters of the system, as well as the directory where the plots will be saved. To change them, the user will have to modify the default values.
+- The file [tests](https://github.com/juanb567/quantum-annealing/blob/master/tests.py) contains tests implemented for the functions in the file [functions](https://github.com/juanb567/quantum-annealing/blob/master/functions.py).
 - The directory [graphs](https://github.com/juanb567/quantum-annealing/blob/master/Graphs) contains the results obtained for a configuration of J = 1, h = 0.0001, step = 0.01, m = 3 and n = 3.
 
 To execute the program, the user needs to clone the repository and type 'python quantum_annealing_simulator.py'. A directory with the images of the simulation will be saved.
