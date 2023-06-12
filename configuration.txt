@@ -1,0 +1,17 @@
+[J]
+value = 1
+
+[h]
+value = 0.0001
+
+[step]
+value = 0.01
+
+[n]
+value = 3
+
+[m]
+value = 3
+
+[directory]
+value = ./Graphs
