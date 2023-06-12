@@ -1,7 +1,9 @@
+import time
 import itertools
 import random
 from scipy.sparse import lil_matrix
 import numpy as np
+from scipy.sparse.linalg import eigsh
 
 
 def lattice(n, m):
@@ -138,3 +140,48 @@ def magnetization(configuration):
         
     mag = np.sum(configuration)/len(configuration)
     return mag
+
+def simulation(J, h, step, n, m):
+    
+    # INITIALIZATION OF THE SYSTEM
+    
+    p = m*n
+    param_lambda = np.arange(0, 1+step, step)
+    amplitudes_values = np.zeros((len(param_lambda), 2**p))
+    magnetization_values = np.zeros(len(param_lambda))
+
+    configurations = possible_configurations(n, m)
+    sites, spins = lattice(n, m)
+    neighbors = neighbors_classification(sites)
+
+    H0 = H_0(n, m, configurations)
+    H1 = H_1(n, m, spins, configurations, neighbors, J, h)
+    
+    start = time.time()
+    
+    # SIMULATION
+    
+    l = 0
+
+    for t in param_lambda:
+        
+        mag = 0.0
+        H = (1-t)*H0 + t*H1
+        energy, ground_state = eigsh(H, 1, which='SA')
+        
+        for i in range(2**p):
+            amplitudes_values[l,i] = abs(ground_state[i,0])**2
+            ind_mag = magnetization(configurations[i])
+            mag += abs((ground_state[i][0].real))**2*ind_mag
+        magnetization_values[l] = mag
+        
+        l += 1
+
+    b = list(abs(ground_state[:,0])).index(max(abs(ground_state[:,0])))   # Position of the list 'configurations' where the solution is
+    
+    final = time.time()
+
+    print('Spent time for the simulation: ' , final - start , ' seconds')
+    
+    print('Energy of the configuration:' , energy)    # Minimum eigenvalue of H
+    return configurations, sites, b, param_lambda, magnetization_values, amplitudes_values
