@@ -29,10 +29,11 @@ Where $H_1$ is the hamiltonian of the Ising model and:
 $$ H_0 = -\sum_{i}S_{i}^{x} $$
 
 $S_{i}^{x}$ being the operator of spin in the x direction. As this operator acts on states of the wavefunction of the spin making the amplitude of proabilities of the states $\ket{\uparrow}$ and $\ket{\downarrow}$ equal, we evolve the wavefuntion from a system with a superposition of all states to a system with a high probability of being in the state of the minimum energy of $H_1$.
-<<<<<<< HEAD
 
 # Simulation of the process
 
+The code simulates the process of quantum annealing that a quantum computer would implement in an abstract way. For that, the code computes the matrix of the hamiltonian $H(\lambda)$ in the base of the states of $S_{i}^{z}$ and, for each step of $\lambda$, diagonalizes it, obtaining the eigenvalue with the minimum value with its corresponding eigenvector: the ground state and the solution of the system.
 
-=======
->>>>>>> 233ab9fd2f7872e653e668c3d81691f25bce0958
+For that, the base of the vectors is created: all the possible configurations of the lattice, where $\ket{\uparrow}=\ket{+1}$ and $\ket{\downarrow}=\ket{-1}$. The base has a dimension of $2^N$, where $N$ is the number of particles in the lattice.
+
+The ground state of the system is calculated as a linear combination of those states. The objective is to start from the state where all configurations are equally probable to the state where the minimum energy of $H_1$ has a probabilty of 100%. For that, the code plots the coeficients squared of each configuration of the linear combination of the ground state of $H(\lambda)$
