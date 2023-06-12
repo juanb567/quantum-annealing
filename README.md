@@ -42,9 +42,6 @@ The code simulates the process of quantum annealing that a quantum computer woul
 
 For that, the base of the vectors is created: all the possible configurations of the lattice, where $\ket{\uparrow}=\ket{+1}$ and $\ket{\downarrow}=\ket{-1}$. The base has a dimension of $2^N$, where $N$ is the number of particles in the lattice.
 
-<<<<<<< HEAD
-The ground state of the system is calculated as a linear combination of those states. The objective is to start from the state where all configurations are equally probable to the state where the minimum energy of $H_1$ has a probabilty of 100%. For that, the code plots the coeficients squared of each configuration of the linear combination of the ground state of $H(\lambda)$
-=======
 The ground state of the system is calculated as a linear combination of those states. The objective is to start from the state where all configurations are equally probable to the state where the minimum energy of $H_1$ has a probabilty of 100%. For that, the code plots the coeficients squared of each configuration of the linear combination of the ground state of $H(\lambda)$, simulating the evolution of the states of the system.
 
 In addition, it calculates the magnetization of the system, defined as the sum of all spin-values divided by the number of particles:
@@ -70,4 +67,3 @@ Next to it, the code contains the part where the simulation is done. After that,
 - The directory [graphs](https://github.com/juanb567/quantum-annealing/blob/master/Graphs) contains the results obtained for a configuration of J = 1, h = 0.0001, step = 0.01, m = 3 and n = 3.
 
 To execute the program, the user needs to clone the repository and type 'python quantum_annealing_simulator.py'. A directory with the images of the simulation will be saved.
->>>>>>> refs/remotes/origin/master
