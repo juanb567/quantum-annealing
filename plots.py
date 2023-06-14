@@ -1,7 +1,6 @@
 import os
 import matplotlib.pyplot as plt
 
-
 def plot_configuration(n, m, configurations, sites, b, directory):
     
     """This module plots the configuration of the ground state
@@ -20,7 +19,6 @@ def plot_configuration(n, m, configurations, sites, b, directory):
     filepath = os.path.join(directory, 'configuration.png')
     os.makedirs(directory, exist_ok=True)
     plt.savefig(filepath)
-
 
 def plot_magnetization(param_lambda, magnetization_values, directory):
     
@@ -71,5 +69,3 @@ def plot_amplitudes_log(n, m, param_lambda, amplitudes_values, directory):
     filepath = os.path.join(directory, 'amplitudes_log.png')
     os.makedirs(directory, exist_ok=True)
     plt.savefig(filepath)
-
-########################################################################
