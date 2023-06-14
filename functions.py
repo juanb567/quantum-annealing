@@ -4,6 +4,7 @@ from scipy.sparse import lil_matrix
 import numpy as np
 from scipy.sparse.linalg import eigsh
 
+# Creation of the lattice:
 
 def lattice(n, m):
     
@@ -125,6 +126,7 @@ def H_1(n, m, spins, configurations, neighbors, J, h):
                 H_1[i, i] += -0.5*J*spins[spin]*spins[neighbor]
     return H_1
 
+# Magnetization of the system:
 
 def magnetization(configuration):
     
@@ -139,6 +141,8 @@ def magnetization(configuration):
         
     mag = np.sum(configuration)/len(configuration)
     return mag
+
+# SIMULATION:
 
 def simulation(J, h, step, n, m):
     
