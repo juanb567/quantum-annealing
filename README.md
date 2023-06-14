@@ -66,4 +66,4 @@ Next to it, the code contains the part where the simulation is done. After that,
 - The file [tests](https://github.com/juanb567/quantum-annealing/blob/master/tests.py) contains tests implemented for the functions in the file [functions](https://github.com/juanb567/quantum-annealing/blob/master/functions.py).
 - The directory [graphs](https://github.com/juanb567/quantum-annealing/blob/master/Graphs) contains the results obtained for a configuration of J = 1, h = 0.0001, step = 0.01, m = 3 and n = 3.
 
-To execute the program, the user needs to clone the repository and type 'python quantum_annealing_simulator.py'. A directory with the images of the simulation will be saved.
+To execute the program, the user needs to clone the repository and execute the program [quantum_annealing_simulator](https://github.com/juanb567/quantum-annealing/blob/master/quantum_annealing_simulator.py). This will use the other files, including the [configuration](https://github.com/juanb567/quantum-annealing/blob/master/congfiguration.txt) file, which can be modified to change the parameters of the simulation. When it finishes, a directory with the images of the simulation is saved.
